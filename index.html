@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Putri Ayu Licha Wardani — Data Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bp:#C2DEFF;--bp2:#E8F4FF;--bd:#3A82C4;--bt:#0E3660;
+    --gp:#B8EDD8;--gp2:#E4F8EE;--gd:#2EA87A;--gt:#0A3D26;
+    --pp:#F2C4DC;--pp2:#FDE8F2;--pd:#D45A96;--pt:#5C1238;
+    --wh:#FAFCFF;--off:#F3F7FC;--bdr:#E2EDF8;
+    --txt:#0F2236;--muted:#5A7A96;
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%;}
+  body{font-family:var(--sans);background:var(--wh);color:var(--txt);overflow-x:hidden;max-width:100%;}
+  ::-webkit-scrollbar{width:5px;}
+  ::-webkit-scrollbar-track{background:var(--off);}
+  ::-webkit-scrollbar-thumb{background:var(--bp);border-radius:99px;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    padding:0 52px;height:62px;
+    display:flex;align-items:center;justify-content:space-between;
+    background:rgba(250,252,255,0.92);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(194,222,255,0.35);
+    transition:box-shadow 0.3s;
+  }
+  nav.scrolled{box-shadow:0 2px 24px rgba(14,54,96,0.07);}
+  .nav-logo{font-family:var(--serif);font-size:19px;color:var(--bt);display:flex;align-items:center;gap:8px;}
+  .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--gd);}
+  .nav-links{display:flex;gap:26px;list-style:none;}
+  .nav-links a{font-size:12.5px;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--bt);}
+  .nav-cv{
+    display:flex;align-items:center;gap:7px;
+    background:var(--bt);color:white;
+    padding:8px 18px;border-radius:100px;
+    font-size:12px;font-weight:600;text-decoration:none;
+    transition:all 0.2s;
+  }
+  .nav-cv:hover{background:#0a2d52;transform:translateY(-1px);}
+
+  /* HERO */
+  #hero{
+    min-height:100vh;
+    /* height: 100vh; */
+    padding:100px 52px 60px;
+    display:flex;align-items:center;
+    background:var(--wh);position:relative;overflow:hidden;
+  }
+  .hblob{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;max-width:100%;}
+  .hb1{width:560px;height:560px;background:#DAEEFF;top:-140px;right:-100px;opacity:0.65;}
+  .hb2{width:380px;height:380px;background:#C8F0DF;bottom:-80px;left:160px;opacity:0.5;}
+  .hb3{width:260px;height:260px;background:#F8D4E8;top:45%;left:-60px;opacity:0.4;}
+  .hero-inner{
+    position:relative;z-index:1;
+    display:grid;
+    grid-template-columns:1fr minmax(0, 420px);
+    gap:40px;align-items:center;
+    max-width:1120px;margin:0 auto;width:100%;
+  }
+  .hero-status{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gp2);border:1px solid var(--gp);
+    padding:5px 14px 5px 8px;border-radius:100px;
+    font-size:11.5px;font-weight:500;color:var(--gt);margin-bottom:24px;
+  }
+  .ping{width:20px;height:20px;border-radius:50%;background:var(--gp2);border:1px solid var(--gp);display:flex;align-items:center;justify-content:center;}
+  .ping::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--gd);animation:pk 1.8s ease-in-out infinite;}
+  @keyframes pk{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(0.7);opacity:0.6}}
+  .hero-title{font-family:var(--serif);font-size:clamp(40px,4.8vw,62px);line-height:1.08;letter-spacing:-0.8px;color:var(--bt);margin-bottom:10px;}
+  .name-hi{display:block;font-style:italic;background:linear-gradient(90deg,var(--bd),var(--gd));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero-role{font-size:16px;color:var(--muted);margin-bottom:18px;}
+  .hero-role strong{color:var(--bt);font-weight:600;}
+  .hero-obj{
+    font-size:14.5px;line-height:1.82;color:#4A6E88;
+    max-width:540px;margin-bottom:32px;
+    padding:18px 20px;border-left:3px solid var(--bp);
+    background:var(--bp2);border-radius:0 12px 12px 0;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}
+  .btn-p{
+    background:var(--bt);color:white;padding:12px 26px;border-radius:100px;
+    font-size:13.5px;font-weight:600;text-decoration:none;
+    transition:all 0.2s;display:flex;align-items:center;gap:7px;
+  }
+  .btn-p:hover{background:#0a2d52;transform:translateY(-2px);box-shadow:0 6px 22px rgba(14,54,96,0.25);}
+  .btn-s{
+    background:white;color:var(--bt);padding:12px 26px;border-radius:100px;
+    font-size:13.5px;font-weight:600;text-decoration:none;
+    border:1.5px solid var(--bp);transition:all 0.2s;
+    display:flex;align-items:center;gap:7px;
+  }
+  .btn-s:hover{border-color:var(--bd);background:var(--bp2);transform:translateY(-2px);}
+  .hero-qinfo{display:flex;gap:22px;flex-wrap:wrap;}
+  .qi{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);}
+  .qi-ic{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;}
+  .qi-b{background:var(--bp2);}
+  .qi-g{background:var(--gp2);}
+  .qi-p{background:var(--pp2);}
+  /* Profile card */
+  .pc{
+    background:white;border-radius:24px;padding:30px;
+    border:1px solid var(--bdr);
+    box-shadow:0 16px 56px rgba(14,54,96,0.09);
+    min-width: 0; width: 100%; max-width: 100%;
+    position:relative;overflow:hidden;
+  }
+  .pc::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--bp),var(--gp),var(--pp));}
+  .pc-av{
+    /* edit lingkaran foto */
+    width:130px;height:130px;border-radius:50%; 
+    /* memasukkan foto ke lingkarannya */
+    overflow: hidden;
+    background:linear-gradient(135deg,var(--bp),var(--gp));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:28px;color:var(--bt);
+    margin-bottom:14px;border:3px solid white;
+    box-shadow:0 4px 14px rgba(58,130,196,0.2);
+  }
+  /* editing foto di lingkaran */
+  .pc-av img{
+    width: 130px; height: 130px; 
+    object-fit: cover;
+    /* transform: scale(2.4); */
+    object-position: 100% center bottom;
+  }
+  .pc-name{font-family:var(--serif);font-size:20px;color:var(--txt);margin-bottom:3px;}
+  .pc-sub{font-size:12.5px;color:var(--muted);margin-bottom:18px;}
+  .pc-div{height:1px;background:var(--bdr);margin:16px 0;width: 100%;max-width: 100%;}
+  .pc-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+  .pc-rl{font-size:11px;color:var(--muted);}
+  .pc-rv{font-size:12.5px;font-weight:600;color:var(--txt);}
+  .pc-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+  .pb{font-size:11px;padding:4px 11px;border-radius:100px;font-weight:500;}
+  .pb-b{background:var(--bp2);color:var(--bt);}
+  .pb-g{background:var(--gp2);color:var(--gt);}
+  .pb-p{background:var(--pp2);color:var(--pt);}
+
+  /* SECTIONS */
+  section{padding:84px 52px;}
+  .smx{max-width:1120px;margin:0 auto;}
+  .eyebrow{
+    font-size:11px;font-weight:600;letter-spacing:0.1em;
+    text-transform:uppercase;margin-bottom:10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow::before{content:'';display:block;width:22px;height:2px;border-radius:1px;}
+  .ey-b{color:var(--bd);}
+  .ey-b::before{background:var(--bd);}
+  .ey-g{color:var(--gd);}
+  .ey-g::before{background:var(--gd);}
+  .ey-p{color:var(--pd);}
+  .ey-p::before{background:var(--pd);}
+  h2{font-family:var(--serif);font-size:clamp(28px,3vw,40px);line-height:1.2;letter-spacing:-0.4px;color:var(--txt);margin-bottom:10px;}
+  .sdesc{font-size:14px;color:var(--muted);line-height:1.75;max-width:520px;}
+
+  /* OBJECTIVE */
+  #objective{background:var(--bp2);}
+  .obj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:8px;}
+  .oc{
+    background:white;border-radius:16px;padding:24px;
+    border:1px solid var(--bdr);transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .oc:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(14,54,96,0.08);}
+  .oc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
+  .oi-b{background:var(--bp2);}
+  .oi-g{background:var(--gp2);}
+  .oi-p{background:var(--pp2);}
+  .oc h3{font-size:15px;font-weight:600;color:var(--txt);margin-bottom:8px;}
+  .oc p{font-size:13px;color:var(--muted);line-height:1.72;}
+
+  /* EDUCATION */
+  #education{background:white;}
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .col-title{
+    font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:0.07em;text-transform:uppercase;
+    margin-bottom:20px;display:flex;align-items:center;gap:8px;
+  }
+  .col-title::after{content:'';flex:1;height:1px;background:var(--bdr);}
+  .edu-item{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start;}
+  .edu-ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .ei-b{background:var(--bp2);border:1px solid var(--bp);}
+  .ei-g{background:var(--gp2);border:1px solid var(--gp);}
+  .ei-p{background:var(--pp2);border:1px solid var(--pp);}
+  .edu-ttl{font-size:14px;font-weight:600;color:var(--txt);margin-bottom:2px;}
+  .edu-inst{font-size:12.5px;color:var(--muted);margin-bottom:4px;}
+  .edu-yr{display:inline-block;font-size:11px;padding:2px 10px;border-radius:100px;font-weight:500;}
+  .ey-b2{background:var(--bp2);color:var(--bt);}
+  .ey-g2{background:var(--gp2);color:var(--gt);}
+  .ey-p2{background:var(--pp2);color:var(--pt);}
+  .cert-ok{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;margin-top:5px;background:#DFF5EB;color:#0A6640;}
+
+  /* EXPERIENCE */
+  #experience{background:var(--off);}
+  .timeline{position:relative;padding-left:28px;}
+  .timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;background:var(--bdr);}
+  .titem{position:relative;margin-bottom:36px;}
+  .titem:last-child{margin-bottom:0;}
+  .tdot{position:absolute;left:-28px;top:6px;width:13px;height:13px;border-radius:50%;border:2px solid white;}
+  .td-b{background:var(--bd);box-shadow:0 0 0 2px var(--bp);}
+  .td-g{background:var(--gd);box-shadow:0 0 0 2px var(--gp);}
+  .td-p{background:var(--pd);box-shadow:0 0 0 2px var(--pp);}
+  .tcard{background:white;border-radius:16px;padding:22px 24px;border:1px solid var(--bdr);transition:box-shadow 0.2s;}
+  .tcard:hover{box-shadow:0 6px 24px rgba(14,54,96,0.08);}
+  .thead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+  .trole{font-size:15px;font-weight:600;color:var(--txt);}
+  .tco{font-size:13px;color:var(--muted);margin-top:2px;}
+  .tperiod{font-size:11.5px;padding:4px 12px;border-radius:100px;font-weight:500;white-space:nowrap;}
+  .tp-b{background:var(--bp2);color:var(--bt);}
+  .tp-g{background:var(--gp2);color:var(--gt);}
+  .tp-p{background:var(--pp2);color:var(--pt);}
+  .tdesc{font-size:13px;color:var(--muted);line-height:1.78;margin-bottom:12px;}
+  .tbullets{padding-left:16px;}
+  .tbullets li{font-size:12.5px;color:#3E6280;line-height:1.75;margin-bottom:5px;list-style:none;position:relative;}
+  .tbullets li::before{content:'→';position:absolute;left:-16px;color:var(--bd);font-size:11px;}
+  .ttags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;}
+  .ttag{font-size:11px;padding:3px 10px;border-radius:6px;background:var(--off);color:var(--muted);border:1px solid var(--bdr);}
+
+  /* SKILLS */
+  #skills{background:white;}
+  .skills-main{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;}
+  .sg-title{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+  .sg-title::after{content:'';flex:1;height:1px;background:var(--bdr);}
+  .srow{margin-bottom:14px;}
+  /* .smeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;} */
+  .smeta{display:flex;align-items:center;margin-bottom:6px;}
+  .sperc{display:flex;margin-left: auto;gap: 10px;}
+  .sname{font-size:13px;font-weight:500;color:var(--txt);}
+  .slvl{font-size:11px;padding:2px 9px;border-radius:100px;font-weight:500;}
+  .sl-a{background:var(--bp2);color:var(--bt);}
+  .sl-i{background:var(--gp2);color:var(--gt);}
+  .sl-b2{background:var(--pp2);color:var(--pt);}
+  .bar-bg{height:5px;background:#E6EEF6;border-radius:99px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:99px;transition:width 1.4s cubic-bezier(0.4,0,0.2,1);}
+  .bf-b{background:linear-gradient(90deg,var(--bd),#8DC8F0);}
+  .bf-g{background:linear-gradient(90deg,var(--gd),#7ADCB4);}
+  .bf-p{background:linear-gradient(90deg,var(--pd),#F08CC4);}
+  .tools-panel{background:var(--off);border-radius:16px;padding:22px;border:1px solid var(--bdr);}
+  .tp-title{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:16px;}
+  .tcat{margin-bottom:18px;}
+  .tcat-name{font-size:12px;font-weight:500;color:var(--txt);margin-bottom:8px;}
+  .tcat-pills{display:flex;flex-wrap:wrap;gap:7px;}
+  .tpill{padding:6px 13px;border-radius:9px;font-size:12px;border:1px solid;transition:transform 0.15s;}
+  .tpill:hover{transform:translateY(-2px);}
+  .tp-bl{background:var(--bp2);border-color:var(--bp);color:var(--bt);}
+  .tp-gr{background:var(--gp2);border-color:var(--gp);color:var(--gt);}
+  .tp-pk{background:var(--pp2);border-color:var(--pp);color:var(--pt);}
+  .tp-nt{background:var(--off);border-color:var(--bdr);color:var(--muted);}
+  .soft-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding-top:22px;border-top:1px solid var(--bdr);}
+  .stag{padding:6px 14px;border-radius:100px;font-size:12px;}
+  .st-b{background:var(--bp2);color:var(--bt);}
+  .st-g{background:var(--gp2);color:var(--gt);}
+  .st-p{background:var(--pp2);color:var(--pt);}
+
+  /* PROJECTS */
+  #projects{background:var(--off);}
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .pcard{background:white;border-radius:18px;overflow:hidden;border:1px solid var(--bdr);transition:transform 0.25s,box-shadow 0.25s;}
+  .pcard:hover{transform:translateY(-6px);box-shadow:0 14px 44px rgba(14,54,96,0.1);}
+  .pthumb{height:150px;display:flex;align-items:center;justify-content:center;position:relative;font-size:38px;}
+  .pt1{background:linear-gradient(130deg,#D4EAFF,#D8F5EC);}
+  .pt2{background:linear-gradient(130deg,#C8F0DC,#D8ECFF);}
+  .pt3{background:linear-gradient(130deg,#F8D8EC,#F0E8FF);}
+  .pt4{background:linear-gradient(130deg,#D8ECFF,#F8E0EC);}
+  .poutcome{
+    position:absolute;bottom:12px;right:12px;
+    background:white;border-radius:10px;padding:6px 12px;
+    font-size:11.5px;font-weight:600;color:var(--bt);
+    box-shadow:0 2px 10px rgba(14,54,96,0.12);border:1px solid var(--bdr);
+  }
+  /* background foto dlm project */
+  .pimg{
+    background: linear-gradient(130deg, rgba(212, 234, 255, 0.7), rgba(216, 245, 236, 0.7)),
+    url('sales analysis.jpg');
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    min-height: 180px; border-radius: 15px 15px 0 0; overflow: hidden;
+    position: relative;display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: flex-end; padding: 15px;
+  }
+  .pimg1{
+    background: linear-gradient(130deg, rgba(200, 240, 220, 0.7), rgba(216, 236, 255, 0.7)),
+    url('data cleaning.jpg');
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    min-height: 180px; border-radius: 15px 15px 0 0; overflow: hidden;
+    position: relative;display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: flex-end; padding: 15px;
+  }
+  .pimg2{
+    background: linear-gradient(130deg, rgba(248, 216, 236, 0.8), rgba(240, 232, 255, 0.7)),
+    url('dashboard.jpg');
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    min-height: 180px; border-radius: 30px 30px 0 0; overflow: hidden;
+    position: relative;display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: flex-end; padding: 15px;
+  }
+  .pimg3{
+    background: linear-gradient(130deg, rgba(216, 236, 255, 0.8), rgba(248, 224, 236, 0.7)),
+    url('iot.jpg');
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    min-height: 180px; border-radius: 15px 15px 0 0; overflow: hidden;
+    position: relative;display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: flex-end; padding: 15px;
+  }
+
+  .pbody{padding:20px 22px 22px;}
+  .ptags{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+  .ptag-item{font-size:10.5px;padding:3px 10px;border-radius:6px;font-weight:600;}
+  .pt-b{background:var(--bp2);color:var(--bt);}
+  .pt-g{background:var(--gp2);color:var(--gt);}
+  .pt-p{background:var(--pp2);color:var(--pt);}
+  .ptitle{font-family:var(--serif);font-size:17px;color:var(--txt);margin-bottom:8px;line-height:1.3;}
+  .pdesc{font-size:12.5px;color:var(--muted);line-height:1.75;margin-bottom:14px;}
+  .pimpact{background:var(--off);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--bt);font-weight:500;border-left:3px solid var(--bd);margin-bottom:12px;}
+  .ptools{display:flex;gap:6px;flex-wrap:wrap;}
+  .ptool{font-size:11px;color:var(--muted);padding:3px 10px;background:var(--off);border-radius:6px;border:1px solid var(--bdr);}
+
+  /* CONTACT */
+  #contact{background:white;}
+  .contact-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;}
+  .contact-intro p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;margin-top:14px;
+    /* TAMBAH INI */
+    word-break:break-word; /* ← tambahkan ini */
+    overflow-wrap:break-word;}
+  .clinks{display:flex;flex-direction:column;gap:12px;}
+  .clink{
+    display:flex;align-items:center;gap:14px;
+    background:var(--off);border-radius:14px;padding:14px 18px;
+    border:1px solid var(--bdr);text-decoration:none;transition:all 0.2s;
+    /* TAMBAH INI */
+    overflow:hidden; 
+  }
+  .clink:hover{border-color:var(--bd);transform:translateX(5px);background:var(--bp2);}
+  .clink-ic{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .cl-b{background:var(--bp2);border:1px solid var(--bp);}
+  .cl-g{background:var(--gp2);border:1px solid var(--gp);}
+  .cl-p{background:var(--pp2);border:1px solid var(--pp);}
+  .cl-lbl{font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:2px;}
+  /* TAMBAH INI */
+  /* .cl-val{font-size:13.5px;font-weight:600;color:var(--txt);} */
+  .cl-val{font-size:12px;font-weight:600;color:var(--txt);
+    word-break: break-all; overflow-wrap: break-word;}
+  .cv-card{
+    background:linear-gradient(135deg,var(--bt) 0%,#1A5580 100%);
+    border-radius:18px;padding:28px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .cv-card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.06);}
+  .cv-card::after{content:'';position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.04);}
+  .cvd-icon{font-size:32px;margin-bottom:10px;}
+  .cvd-title{font-family:var(--serif);font-size:20px;color:white;margin-bottom:6px;}
+  .cvd-sub{font-size:12.5px;color:rgba(255,255,255,0.65);margin-bottom:20px;line-height:1.6;}
+  .cvd-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:white;color:var(--bt);
+    padding:11px 24px;border-radius:100px;
+    font-size:13.5px;font-weight:700;text-decoration:none;
+    transition:all 0.2s;position:relative;z-index:1;
+  }
+  .cvd-btn:hover{background:var(--bp2);transform:translateY(-2px);}
+  .info-summary{background:var(--off);border-radius:16px;padding:22px;margin-top:20px;border:1px solid var(--bdr);}
+  .is-title{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:14px;}
+  .is-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:10px;}
+  .is-row:last-child{margin-bottom:0;}
+  .is-lbl{color:var(--muted);}
+  /* FOOTER */
+  footer{
+    background:var(--txt);color:#8EB0CC;
+    padding:36px 52px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .fl-name{font-family:var(--serif);font-size:18px;color:white;margin-bottom:4px;}
+  .fl-role{font-size:12px;color:#5A88A8;}
+  .fl-links{display:flex;gap:20px;}
+  .fl-links a{font-size:12px;color:#5A88A8;text-decoration:none;transition:color 0.2s;}
+  .fl-links a:hover{color:var(--bp);}
+  .fl-copy{font-size:11px;color:#3A5870;}
+
+  /* ANIM */
+  .fu{opacity:0;transform:translateY(26px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .fu.in{opacity:1;transform:translateY(0);}
+  .d1{transition-delay:0.08s;}.d2{transition-delay:0.16s;}
+  .d3{transition-delay:0.24s;}.d4{transition-delay:0.32s;}
+
+  @media(max-width:1100px){
+    nav{padding:0 20px;}
+    .nav-links{display:none;}
+    section{padding:60px 20px;}
+    #hero{padding:80px 20px 50px;}
+    .hero-inner,.edu-grid,.skills-main,.contact-inner,.obj-grid{grid-template-columns:1fr;}
+    .proj-grid{grid-template-columns:1fr;}
+    footer{padding:28px 20px;}
+  }
+
+  /* ── MOBILE FIX ── */
+  @media(max-width:768px){
+    /* Fix blob yang keluar layar — INI penyebab body 14.793px */
+    .hb1{width:280px;height:280px;right:0;top:-80px;}
+    .hb2{width:200px;height:200px;left:0;bottom:-40px;}
+    .hb3{display:none; }
+    /* TAMBAH INI */
+    .contact-inner{ grid-template-columns:1fr; gap:20px; }
+
+    /* Nav */
+    nav{padding:0 16px;}
+    .nav-logo{font-size:15px;}
+
+    /* Hero */
+    #hero{padding:80px 16px 40px;min-height:auto;}
+    .hero-inner{grid-template-columns:1fr;gap:28px;}
+    .hero-title{font-size:clamp(32px,8vw,48px);}
+    .hero-obj{font-size:13px;padding:14px 16px;max-width:100%;}
+    .hero-actions{flex-direction:column;gap:10px;}
+    .btn-p,.btn-s{width:100%;justify-content:center;}
+    .hero-qinfo{gap:12px;}
+
+    /* Profile card */
+    .pc{padding:20px;}
+    .pc-name{font-size:17px;}
+    .pc-rv{font-size:11px;}
+
+    /* Sections */
+    section{padding:48px 16px;}
+    .smx{width:100%;}
+
+    /* Objective */
+    .obj-grid{grid-template-columns:1fr;gap:14px;}
+
+    /* Education */
+    .edu-grid{grid-template-columns:1fr;gap:24px;}
+
+    /* TAMBAH INI */
+    /* Experience */
+    .thead{flex-direction: column; gap: 6px;}
+    .tperiod{ white-space: normal; align-self: flex-start; word-break: break-word;}
+    /* Nama univ */
+    .tco{ word-break: break-word; white-space: normal;}
+
+    /* Skills */
+    .skills-main{grid-template-columns:1fr;gap:28px;}
+
+    /* Projects */
+    .proj-grid{grid-template-columns:1fr;}
+    .pimg,.pimg1,.pimg2,.pimg3{min-height:140px;}
+
+    /* Contact */
+    .contact-inner{grid-template-columns:1fr;gap:28px;}
+    .cl-val{font-size:12px;}
+
+    /* Footer */
+    footer{
+      flex-direction:column;text-align:center;
+      padding:24px 16px;gap:12px;
+    }
+    .fl-links{flex-wrap:wrap;justify-content:center;gap:12px;}
+
+    /* Timeline */
+    .thead{flex-direction:column;gap:6px;}
+    .tperiod{align-self:flex-start;}
+
+    /* CV CARD */
+    .cv-card{padding:20px 16px;}
+    .info-summary{padding:16px;}
+    .cvd-btn{ width:100%; justify-content:center; font-size:12px; padding:10px 16px;}
+    /* Info summary */
+    .is-row{flex-direction:column;gap:2px;margin-bottom:14px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HTML -->
+<nav id="nav">
+  <div class="nav-logo"><div class="nav-dot"></div>Putri Ayu Licha Wardani</div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Project</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://drive.google.com/file/d/1ZlwOUs2HJEvBePd8BQ9CtcUrglnRD7wZ/view?usp=sharing";
+          target="_blank"
+          class="cvd-btn">Download CV</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hblob hb1"></div>
+  <div class="hblob hb2"></div>
+  <div class="hblob hb3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-status fu"><div class="ping"></div>Actively Seeking Full-Time Position</div>
+      <h1 class="hero-title fu d1">Hi, I'm<span class="name-hi">Putri Ayu Licha Wardani</span></h1>
+      <p class="hero-role fu d2"><strong>Data Analyst </strong> — Transforming Raw Data into Business Insights</p>
+      <div class="hero-obj fu d2">
+        <strong>Data Analyst</strong>  with a Telecommunication Engineering background (GPA 3.70) and hands-on experience across <strong>data cleaning,
+        SQL querying, and Tableau dashboard development</strong>. Delivered 3 end-to-end independent project on real-world datasets — <strong>resolving 920+ 
+        data quality issues and building multi-view interactive dashboards</strong>. Currently seeking a <strong> Data Analyst</strong> role to drive data-informed business decisions. 
+      </div>
+      <div class="hero-actions fu d3">
+        <a href="#projects" class="btn-p">View My Projects →</a>
+        <a href="#contact" class="btn-s">📬 Contact Me</a>
+      </div>
+      <div class="hero-qinfo fu d4">
+        <div class="qi"><div class="qi-ic qi-b">📍</div>Sidoarjo, East Java, Indonesia</div>
+        <div class="qi"><div class="qi-ic qi-g">🎓</div>Politeknik Elektronika Negeri Surabaya</div>
+        <div class="qi"><div class="qi-ic qi-p">💼</div>Open to Work</div>
+      </div>
+    </div>
+    <div class="fu d2">
+      <div class="pc">
+        <div class="pc-av">
+          <img src="DSC01499.JPG" alt="Profile Photo">
+        </div>
+        <div class="pc-name">Putri Ayu Licha Wardani</div>
+        <div class="pc-sub">Data Analyst · Sidoarjo, East Java, Indonesia</div>
+        <div class="pc-div"></div>
+        <div class="pc-row"><span class="pc-rl">Education</span><span class="pc-rv">S.Tr.T , Telecommunication Engineering <span></div>
+        <div class="pc-row"><span class="pc-rl">University</span><span class="pc-rv">Politeknik Elektronika Negeri Surabaya</span></div>
+        <div class="pc-row"><span class="pc-rl">GPA</span><span class="pc-rv">3.70 / 4.00</span></div>
+        <div class="pc-row"><span class="pc-rl">Status</span><span class="pc-rv" style="color:var(--gd)">✓ Available</span></div>
+        <div class="pc-div"></div>
+        <div class="pc-badges">
+          <span class="pb pb-b">SQL</span><span class="pb pb-g">Python</span>
+          <span class="pb pb-b">Tableau</span><span class="pb pb-p">Excel</span>
+          <span class="pb pb-g">Data Cleaning & Validation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIVE -->
+<section id="objective">
+  <div class="smx">
+    <div style="margin-bottom:40px">
+      <div class="eyebrow ey-b fu">Career Objective</div>
+      <h2 class="fu d1">What I Bring to the Table</h2>
+      <p class="sdesc fu d2">Three core values I offer as a Data Analyst candidate for your organization.</p>
+    </div>
+    <div class="obj-grid">
+      <div class="oc fu">
+        <div class="oc-icon oi-b">📊</div>
+        <h3>Data-Driven Analysis</h3>
+        <p>Skilled at processing large datasets using SQL, Python, and Excel to uncover patterns and insights that support smarter business decisions.</p>
+      </div>
+      <div class="oc fu d1">
+        <div class="oc-icon oi-g">📈</div>
+        <h3>Communicative Visualization</h3>
+        <p>Transforming complex data into dashboards and visual reports that are easy to understand for all stakeholders — from technical teams to senior management.</p>
+      </div>
+      <div class="oc fu d2">
+        <div class="oc-icon oi-p">🎯</div>
+        <h3>Results-Oriented</h3>
+        <p>Every analysis I conduct is focused on concrete recommendations and real business impact — not just numbers and charts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="smx">
+    <div style="margin-bottom:40px">
+      <div class="eyebrow ey-g fu">Background</div>
+      <h2 class="fu d1">Education & Certifications</h2>
+    </div>
+    <div class="edu-grid">
+      <div>
+        <div class="col-title fu">🎓 Education History</div>
+        <div class="edu-item fu d1">
+          <div class="edu-ic ei-b">🏛️</div>
+          <div>
+            <div class="edu-ttl">Politeknik Elektronika Negeri Surabaya</div>
+            <div class="edu-inst"><strong>Telecommunication Engineering · D4 (Bachelor's Applied)</strong></div>
+            <span class="edu-yr ey-b2">2023 – 2025</span>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;"><strong>GPA: </strong> 3.70 / 4.00 · <strong>Thesis: </strong> Edge Computing & Machine Learning</div>
+          </div>
+        </div>
+        <div class="edu-item fu d2">
+          <div class="edu-ic ei-g">🏛️</div>
+          <div>
+            <div class="edu-ttl">Politeknik Elektronika Negeri Surabaya</div>
+            <div class="edu-inst"><strong>Telecommunication Engineering · D3 (Associate's Applied)</strong></div>
+            <span class="edu-yr ey-g2">2020 - 2023</span>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;"><strong>GPA: </strong> 3.69 / 4.00 · <strong>Thesis: </strong> Signal & FSO (Free Space Optic)</div>
+          </div>
+        </div>
+        <div class="edu-item fu d3">
+          <div class="edu-ic ei-p">💡</div>
+          <div>
+            <div class="edu-ttl">Bootcamp - Data Analyst</div>
+            <div class="edu-inst"><strong>DSAREA (DigitalSkillArea) · Data Analytics</strong></div>
+            <span class="edu-yr ey-p2">February - March 2026</span>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;"><strong>Focus: </strong> Python (Pandas, Matplotlib), SQL, Microsoft Excel (VLOOKUP/XLOOKUP, Pivot Table, Databases), 
+              SPSS, Data Visualization, Data Cleaning, Reporting</div>
+          </div>
+        </div>
+        <div class="edu-item fu d3">
+          <div class="edu-ic ei-p">🤖</div>
+          <div>
+            <div class="edu-ttl">Bootcamp - Linear Model In Machine Learning</div>
+            <div class="edu-inst"><strong>Digital Talent Scholarship (DTS) · Machine Learning</strong></div>
+            <span class="edu-yr ey-p2">April - July 2025</span>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;"><strong>Focus: </strong> Python, Data Visualization, Scikit-learn, Data Validation, 
+              Pandas, NumPy, Matplotlib, Regression Model, Data Modeling, Data Preprocessing</div>
+          </div>
+        </div>
+        <!-- <div class="edu-item fu d3">
+          <div class="edu-ic ei-p">🌐</div>
+          <div>
+            <div class="edu-ttl">Pelatihan - IoT Based Embedded System Programming</div>
+            <div class="edu-inst"><strong>Kementrian Ketenagakerjaan (Kemnaker) · Internet of Things (IoT)</strong></div>
+            <span class="edu-yr ey-p2">Agustus - Oktober 2024</span>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;"><strong>Fokus: </strong> Clud Applications, Arduino IDE, Internet of Things (IoT),
+            Mikrokontroler, C (Programming Language), Hardware</div>
+          </div>
+        </div> -->
+      </div>
+      <div> 
+        <div class="col-title fu">🏅 Certifications</div>
+        <div class="edu-item fu d1">
+          <div class="edu-ic ei-b">📜</div>
+          <div>
+            <div class="edu-ttl">Introduction to Structured Query Language (SQL)</div>
+            <div class="edu-inst">Dicoding Indonesia</div>
+            <span class="edu-yr ey-p2">2026</span>
+            <div><span class="cert-ok">✓ Verified</span></div>
+          </div>
+        </div>
+        <div class="edu-item fu d1">
+          <div class="edu-ic ei-b">📜</div>
+          <div>
+            <div class="edu-ttl">Introduction to Data Science</div>
+            <div class="edu-inst">Dicoding Indonesia</div>
+            <span class="edu-yr ey-b2">2026</span>
+            <div><span class="cert-ok">✓ Verified</span></div>
+          </div>
+        </div>
+        <div class="edu-item fu d2">
+          <div class="edu-ic ei-g">📜</div>
+          <div>
+            <div class="edu-ttl">Data Analyst</div>
+            <div class="edu-inst">DSAREA (DigitalSkillArea)</div>
+            <span class="edu-yr ey-g2">2026</span>
+            <div><span class="cert-ok">✓ Verified</span></div>
+          </div>
+        </div>
+        <div class="edu-item fu d3">
+          <div class="edu-ic ei-p">📜</div>
+          <div>
+            <div class="edu-ttl">Linear Model in Machine Learning</div>
+            <div class="edu-inst">Digital Talent Scholarship (DTS)</div>
+            <span class="edu-yr ey-p2">2025</span>
+            <div><span class="cert-ok">✓ Verified</span></div>
+          </div>
+        </div>
+        <!-- <div class="edu-item fu d4">
+          <div class="edu-ic ei-b">📜</div>
+          <div>
+            <div class="edu-ttl">IoT Based Embedded System Programming</div>
+            <div class="edu-inst">Badan Nasional Sertifikasi Profesi (BNSP)</div>
+            <span class="edu-yr ey-b2">2024</span>
+            <div><span class="cert-ok">✓ Verified</span></div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="smx">
+    <div style="margin-bottom:40px">
+      <div class="eyebrow ey-p fu">Work History</div>
+      <h2 class="fu d1">Experience & Internship</h2>
+      <p class="sdesc fu d2">Hands-on experience that shaped my analytical skills and professional competencies.</p>
+    </div>
+    <div class="timeline">
+      <div class="titem fu">
+        <div class="tdot td-b"></div>
+        <div class="tcard">
+          <div class="thead">
+            <div><div class="trole">Production Supervisor</div><div class="tco">🏢 PT Wijaya Panca Sentosa Food · Sidoarjo, East Java</div></div>
+            <span class="tperiod tp-b">August – October 2025</span>
+          </div>
+          <p class="tdesc">Responsible for planning, supervising, and coordinating daily operations on the production floor to ensure output targets, quality standards, and efficiency were consistently met.</p>
+          <ul class="tbullets">
+            <li><strong>Data Administration & Integrity: </strong>Monitored daily production reporting and operational administration systematically to ensure data documentation accuracy, serving as the basis for management decision-making</li>
+            <li><strong>Standards Compliance: </strong>Ensured all production lines operated in accordance with Standard Operating Procedures (SOP) and workplace safety regulations to maintain consistent output quality</li>
+            <li><strong>Cross-Departmental Collaboration: </strong>Coordinated workflow integration between Maintenance, Quality Control, and Production teams to minimize operational bottlenecks and accelerate resolution of technical issues on the floor</li>
+          </ul>
+          <div class="ttags">
+            <span class="ttag">Cross-functional Coordination</span><span class="ttag">Operational Data Integrity</span>
+            <span class="ttag">SOP Compliance & Auditing</span><span class="ttag">Production Reporting & Analysis</span>
+            <span class="ttag">Quality Assurance (QA) Oversight</span>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="titem fu">
+        <div class="tdot td-b"></div>
+        <div class="tcard">
+          <div class="thead">
+            <div><div class="trole">Student Coordinator / Penanggung Jawab Mata Kuliah</div><div class="tco">🏢 Politeknik Elektronika Negeri Surabaya · Prodi Teknik Telekomunikasi</div></div>
+            <span class="tperiod tp-p">Februari - Juni 2022 | September - Desember 2023</span>
+          </div>
+          <p class="tdesc">Mengoordinasikan alur operasional akademik dan memastikan integritas distribusi informasi bagi mahasiswa. 
+            Bertanggung jawab atas verifikasi data administratif dengan tingkat ketelitian tinggi guna mendukung efektivitas manajemen mata kuliah.</p>
+          <ul class="tbullets">
+            <li><strong>Manajemen Komunikasi & Koordinasi: </strong>Menjadi penghubung utama antara dosen dan mahasiswa untuk mata kuliah teknis
+            (Aplikasi Pengolahan Sinyal Digital & Sinyal Sistem), memastikan penyampaian materi kurikulum dan instruksi akademik berjalan efektif bagi 30+ mahasiswa</li>
+            <li><strong>Administrasi & Verifikasi Data: </strong>Melakukan verifikasi kelengkapan berkas administrasi mahasiswa secara sistematis guna memastikan akurasi data sebelum diproses 
+            lebih lanjut, meminimalkan kesalahan input dalam manajemen informasi mata kuliah</li>
+            <li><strong>Optimalisasi Logistik Akademik: </strong>Mengatur jadwal kelas tambahan & pengganti, dan koordinasi kebutuhan praktikum pengolahan sinyal, 
+            menunjukkan kemampuan organisasi yang kuat dalam mendukung kelancaran proses belajar mengajar</li>
+            <li><strong>Quality Control Tugas: </strong>Memastikan seluruh pengumpulan tugas mahasiswa terorganisis dengan baik dan sesui dengan <i>deadline</i> yang ditentukan untuk
+            menjaga alur kerja penilaian dosen yang efisien</li>
+          </ul>
+          <div class="ttags">
+            <span class="ttag">Student Coordinator</span><span class="ttag">Liaison Officer</span><span class="ttag">Stakeholder Coordination</span>
+            <span class="ttag">Time Management</span><span class="ttag">Communication Bridge</span><span class="ttag">Data Entry & Validation</span>
+            <span class="ttag">Reporting Accuracy</span><span class="ttag">Records Management</span><span class="ttag">Data Integrity</span>
+          </div>
+        </div>
+      </div> -->
+      <div class="titem fu d1">
+        <div class="tdot td-g"></div>
+        <div class="tcard">
+          <div class="thead">
+            <div><div class="trole">Technical Operations & Data Support Intern</div><div class="tco">🏢 PT Telkomsat Regional IV · Surabaya, East Java</div></div>
+            <span class="tperiod tp-g">July - December 2022</span>
+          </div>
+          <p class="tdesc">Supported satellite infrastructure and ATM network operations across East Java, with a primary focus on technical maintenance and accurate asset and cost database management to improve company reporting efficiency.</p>
+          <ul class="tbullets">
+            <li><strong>Data Management & Validation: </strong>Managed and validated over 500 technician maintenance cost data entries using Microsoft Excel, including distance and time calculations to improve financial reporting accuracy and audit readiness</li>
+            <li><strong>Technical Asset Inventory: </strong>Successfully completed data collection and inventory for 200+ infrastructure devices (including BUC, LNB, Cisco Router, and UPS) using Excel to ensure company asset database integrity</li>
+            <li><strong>Monitoring & Quality Assurance: </strong>Conducted periodic monitoring every 3 hours on SQF, CSTS, and IDR Hub Hx parameter values to ensure satellite transmission stability and technician service quality across East Java</li>
+          </ul>
+          <div class="ttags">
+            <span class="ttag">Microsoft Excel</span><span class="ttag">Satellite Communication</span>
+            <span class="ttag">Data Validation & Integrity</span><span class="ttag">Infrastructure Asset Management</span><span class="ttag">Analytical Skills</span>
+            <span class="ttag">SLA Monitoring & Reporting</span><span class="ttag">Operational Cost Tracking</span><span class="ttag">Network Maintenance Support</span>
+          </div>
+        </div>
+      </div>
+      <div class="titem fu d2">
+        <div class="tdot td-p"></div>
+        <div class="tcard">
+          <div class="thead">
+            <div><div class="trole">Programmer & Treasurer</div><div class="tco">🎓 Politeknik Elektronika Negeri Surabaya · Robotics Team - ERISA</div></div>
+            <span class="tperiod tp-p">January 2021 – July 2022</span>
+          </div>
+          <p class="tdesc">Served as Programmer and Treasurer for a nationally award-winning robotics team, integrating robot movement algorithm development with disciplined budget management to ensure competition readiness and financial reporting accuracy.</p>
+
+          <span class="tperiod tp-gr">Programmer</span>
+          <br><ul class="tbullets">
+            <li><strong>Precision Algorithm Development: </strong>Designed and optimized dynamic robot leg movement algorithms using <i>Keil uVision</i>, ensuring high mechanical responsiveness and stability</li>
+            <li><strong>Motion Synchronization & Consistency: </strong>Developed a synchronized robot dance coordination system, improving performance consistency across every testing session</li>
+            <li><strong>National Competition Achievement: </strong>Made key contributions in leading the team to achieve <strong>1st place at Regional & National level</strong> through superior programming innovation</li>
+          </ul>
+
+          <span class="tperiod tp-gr">Team Treasurer</span>
+          <br><ul class="tbullets">
+            <li><strong>Budget Optimization: </strong>Strategically managed and planned ERISA Robotics Team's operational budget, successfully reducing unnecessary expenditure</li>
+            <li><strong>Financial Report Digitization: </strong>Transformed manual reporting systems into digital format to improve transparency, accountability, and reduce data entry errors</li>
+            <li><strong>Structured Financial Management: </strong>Ensured sustainable financial resources through disciplined planning, supporting the team's back-to-back national achievements</li>
+          </ul>
+          <div class="ttags">
+            <span class="ttag">Algorithm Development</span><span class="ttag">Embedded Systems Programming</span>
+            <span class="ttag">Performance Optimization</span><span class="ttag">System Troubleshooting</span><span class="ttag">Keil uVision</span>
+            <span class="ttag">Financial Data Digitization</span><span class="ttag">Budget Optimization & Planning</span>
+            <span class="ttag">Financial Accountability</span><span class="ttag">Resource Allocation</span><span class="ttag">Stakeholder Coordination</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="smx">
+    <div style="margin-bottom:40px">
+      <div class="eyebrow ey-b fu">Competencies</div>
+      <h2 class="fu d1">Skills & Tools</h2>
+      <p class="sdesc fu d2">Technical skills and tools I use for day-to-day data analytics work.</p>
+    </div>
+    <div class="skills-main">
+      <div>
+        <div class="fu">
+          <!-- ANALISIS -->
+          <div class="sg-title">Analysis & Programming</div>
+          <div class="srow"><div class="smeta"><span class="sname">Microsoft Excel / Google Sheets</span>
+            <div class="sperc">
+              <span class="slvl sl-a">Advanced</span>
+              <!-- <span class="slvl sl-a">93%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-b" style="width:93%"></div></div></div>
+          <div class="srow"><div class="smeta"><span class="sname">Python (Pandas, NumPy, Matplotlib)</span>
+            <div class="sperc">
+              <span class="slvl sl-a">Advanced</span>
+              <!-- <span class="slvl sl-a">84%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-g" style="width:84%"></div></div></div>
+          <div class="srow"><div class="smeta"><span class="sname">SQL (MySQL, PostgreSQL)</span>
+            <div class="sperc">
+               <span class="slvl sl-i">Intermediate</span>
+               <!-- <span class="slvl sl-i">77%</span> -->
+            </div>
+           </div><div class="bar-bg"><div class="bar-fill bf-p" style="width:77%"></div></div></div>
+          <div class="srow"><div class="smeta"><span class="sname">Statistical Analysis</span>
+            <div class="sperc">
+              <span class="slvl sl-i">Intermediate</span>
+              <!-- <span class="slvl sl-i">75%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-b" style="width:75%"></div></div></div>
+          <div class="srow"><div class="smeta"><span class="sname">Data Cleaning & Validation</span>
+            <div class="sperc">
+              <span class="slvl sl-a">Advanced</span>
+              <!-- <span class="slvl sl-a">85%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-g" style="width:85%"></div></div></div>
+        </div>
+        <!-- VISUALISASI REPORTING -->
+        <div class="fu d1" style="margin-top:24px">
+          <div class="sg-title">Visualization & Reporting</div>
+          <!-- <div class="srow"><div class="smeta"><span class="sname">Looker Studio / Google Data Studio</span>
+            <div class="sperc">
+              <span class="slvl sl-i">Intermediate</span>
+              <span class="slvl sl-i">75%</span>
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-b" style="width:75%"></div></div></div> -->
+          <div class="srow"><div class="smeta"><span class="sname">Tableau</span>
+            <div class="sperc">
+              <span class="slvl sl-a">Advanced</span>
+              <!-- <span class="slvl sl-a">88%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-g" style="width:88%"></div></div></div>
+          <!-- <div class="srow"><div class="smeta"><span class="sname">Power BI</span>
+            <div class="sperc">
+              <span class="slvl sl-b2">Beginner</span>
+              <span class="slvl sl-b2">65%</span>
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-p" style="width:65%"></div></div></div> -->
+          <div class="srow"><div class="smeta"><span class="sname">Pivot Chart</span>
+            <div class="sperc">
+              <span class="slvl sl-a">Advanced</span>
+              <!-- <span class="slvl sl-a">90%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-p" style="width:90%"></div></div></div>
+          <div class="srow"><div class="smeta"><span class="sname">Microsoft PowerPoint (Data Storytelling)</span>
+            <div class="sperc">
+              <span class="slvl sl-a">Advanced</span>
+              <!-- <span class="slvl sl-a">90%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-b" style="width:90%"></div></div></div>
+          <div class="srow"><div class="smeta"><span class="sname">Operational & Financial Reporting</span>
+            <div class="sperc">
+              <span class="slvl sl-i">Intermediate</span>
+              <!-- <span class="slvl sl-i">79%</span> -->
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-g" style="width:79%"></div></div></div>
+          <!-- <div class="srow"><div class="smeta"><span class="sname">Real-time Monitoring (SLA/SQF)</span>
+            <div class="sperc">
+              <span class="slvl sl-a">Advanced</span>
+              <span class="slvl sl-a">82%</span>
+            </div>
+          </div><div class="bar-bg"><div class="bar-fill bf-p" style="width:82%"></div></div></div> -->
+        </div>
+        <div class="soft-row fu d2">
+          <span class="stag st-b">Analytical Thinking</span>
+          <span class="stag st-g">Attention-to-Detail</span>
+          <span class="stag st-p">Problem Solving</span>
+          <span class="stag st-b">Data Storytelling</span>
+          <!-- <span class="stag st-g">Communication </span> -->
+          <span class="stag st-p">Teamwork & Collaboration</span>
+          <span class="stag st-b">Time Management</span>
+          <span class="stag st-g">Cross-functional Communication</span>
+          <!-- <span class="stag st-p">SOP Compliance</span> -->
+          <span class="stag st-p">Self-driven learning</span>
+          <span class="stag st-g">Statistical Analysis</span>
+        </div>
+      </div>
+
+      <!-- TOOLS PLATFORM -->
+      <div class="fu d1">
+        <div class="tools-panel">
+          <div class="tp-title">Tools & Platform</div>
+          <div class="tcat"><div class="tcat-name">📊 Data Analysis</div><div class="tcat-pills"><span class="tpill tp-bl">Excel</span><span class="tpill tp-bl">Google Sheets</span><span class="tpill tp-bl">Scikit-learn</span>
+            <span class="tpill tp-bl">Pandas</span><span class="tpill tp-bl">NumPy</span><span class="tpill tp-bl">Data Cleaning</span><span class="tpill tp-bl">Data Validation</span></div></div>
+          <div class="tcat"><div class="tcat-name">🐍 Programming</div><div class="tcat-pills"><span class="tpill tp-gr">Python</span><span class="tpill tp-gr">SQL</span><span class="tpill tp-gr">Jupyter Notebook</span>
+            <span class="tpill tp-gr">Google Colab</span><span class="tpill tp-gr">C</span></div></div>
+          <div class="tcat"><div class="tcat-name">📈 Visualization</div><div class="tcat-pills"><span class="tpill tp-pk">Tableau</span>
+            <span class="tpill tp-pk">Matplotlib</span><span class="tpill tp-pk">Seaborn</span><span class="tpill tp-pk">PowerPoint</span></div></div>
+          <div class="tcat"><div class="tcat-name">🗄️ Database</div><div class="tcat-pills"><span class="tpill tp-bl">MySQL</span><span class="tpill tp-bl">PostgreSQL</span><span class="tpill tp-bl">Firebase</span></div></div>
+          <div class="tcat" style="margin-bottom:0"><div class="tcat-name">🤝 Collaboration</div><div class="tcat-pills">
+            <!-- <span class="tpill tp-gr">Notion</span> -->
+            <span class="tpill tp-gr">GitHub</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="smx">
+    <div style="margin-bottom:40px">
+      <div class="eyebrow ey-p fu">Project Portfolio</div>
+      <h2 class="fu d1">Selected Data Projects</h2>
+      <p class="sdesc fu d2">Academic, final-year, and independent projects that demonstrate my analytical capabilities on real-world datasets.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="pcard fu">
+        <div class="pthumb pimg"><div class="poutcome">MTD (<i>Month-to-Date</i>) Data</div></div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-item pt-b">Microsoft Excel</span><span class="ptag-item pt-b">Dashboard</span><span class="ptag-item pt-b">Business Analysis</span></div>
+          <div class="ptitle">Sales Performance Analysis & Revenue Forecasting</div>
+          <div class="pdesc">Conducted an end-to-end sales data analysis using Microsoft Excel on a dataset of 130 transactions (January–May 2024).
+          The project covered data cleaning, Pivot Table creation, and interactive Dashboard design to identify revenue drivers and regional performance gaps.</div>
+          <div class="pimpact">💡 <strong>Impact:</strong> Identified the <i>Shoes</i> segment as the top revenue contributor (23.7% market share) and projected May 2024 revenue at IDR 9.8M — providing a data foundation for product inventory planning</div>
+          <div class="ptools"><span class="ptool">Excel</span><span class="ptool">Pivot Table</span><span class="ptool">Data Visualization</span><span class="ptool">Forecasting</span>
+          <a href="https://github.com/putriayu101/Sales-Performance-Analysis-Revenue-Forecasting-Excel"
+          target="_blank" class="ptool" style="color: var(--gt); text-decoration: none;">🔗 View Project</a></div>
+        </div>
+      </div>
+      <div class="pcard fu d1">
+        <div class="pthumb pimg1"><div class="poutcome">3.000 Rows</div></div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-item pt-g">Microsoft Excel</span><span class="ptag-item pt-g">Data Cleaning</span></div>
+          <div class="ptitle">Data Cleaning & Standardization - Online Retail Dataset</div>
+          <div class="pdesc">Performed end-to-end data wrangling on a 3,000-row retail dataset using Excel functions (LEFT, FIND, PROPER).
+          Resolved weight unit inconsistencies and brand encoding errors to ensure data quality prior to the analysis stage.</div>
+          <div class="pimpact">💡 <strong>Impact:</strong> Resolved 920+ technical issues and delivered a final dataset with 98% consistency — ready for integration into a database or visualization dashboard</div>
+          <div class="ptools"><span class="ptool">Microsoft Excel</span><span class="ptool">Imputation</span><span class="ptool">Standardization</span><span class="ptool">EDA</span>
+          <a href="https://github.com/putriayu101/Data-Cleaning-Standardization---Online-Retail-Dataset"
+          target="_blank" class="ptool" style="color: var(--gt); text-decoration: none;">🔗 View Project</a></div>
+        </div>
+      </div>
+      <div class="pcard fu d2">
+        <div class="pthumb pimg2"><div class="poutcome">2.000 Transactions</div></div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-item pt-p">PostgreSQL</span><span class="ptag-item pt-p">Tableau</span></div>
+          <div class="ptitle">End-to-End Retail Sales Analysis & Dashboard Visualization</div>
+          <div class="pdesc">Performed data exploration and cleaning on retail transaction data using PostgreSQL (Joins, Window Functions, Grouping).
+          Analyzed customer purchasing patterns by category, demographics (age/gender), and time trends to support data-driven business decision-making.</div>
+          <div class="pimpact">💡 <strong>Impact:</strong> Identified peak sales for the <i>Clothing</i> category in November 2022 and mapped the busiest operational window (<i>Evening Shift</i>), enabling more targeted inventory optimization and marketing strategy</div>
+          <div class="ptools"><span class="ptool">SQL Querying</span><span class="ptool">Business Insights</span><span class="ptool">Data Visualization</span>
+          <span class="ptool">Trend Analysis</span>
+          <a href="https://github.com/putriayu101/End-to-End-Retail-Sales-Analysis-Dashboard-Visualization"
+          target="_blank" class="ptool" style="color: var(--gt); text-decoration: none;">🔗 View Project</a></div>
+        </div>
+      </div>
+      <div class="pcard fu d3">
+        <div class="pthumb pimg3"><div class="poutcome">Academic Final Project</div></div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-item pt-b">Machine Learning</span><span class="ptag-item pt-p">Python</span><span class="ptag-item pt-b">IoT</span><span class="ptag-item pt-p">Edge Computing</span></div>
+          <div class="ptitle">Plant Recommendation System on Agricultural Land Using Hierarchical Clustering Method</div>
+          <div class="pdesc">Academic Final Project — demonstrates data processing and ML implementation skills applicable to data analytics. Built a real-time soil nutrient monitoring system that provides crop recommendations using IoT sensors and edge computing.
+          This project strengthened large-scale sensor data processing, preprocessing, and clustering algorithm implementation skills relevant to industry-level data analysis.</div>
+          <div class="pimpact">💡 <strong>Impact:</strong> Implemented an <i>Agglomerative Hierarchical Clustering</i> (AHC) algorithm achieving the fastest average computation time (2.1 seconds) and 95% model accuracy, with automatic data synchronization to Firebase via Wi-Fi</div>
+          <div class="ptools"><span class="ptool">Data Science</span><span class="ptool">Agglomerative Clustering</span><span class="ptool">Firebase</span><span class="ptool">Smart Agriculture</span>
+          <a href="https://github.com/putriayu101/Plant-Recommendation-System-on-Agricultural-Land-Using-Hierarchical-Clustering-Method"
+          target="_blank" class="ptool" style="color: var(--gt); text-decoration: none;">🔗 View Project</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="smx">
+    <div class="contact-inner">
+      <div class="contact-intro">
+        <div class="eyebrow ey-b fu">Get In Touch</div>
+        <h2 class="fu d1">Interested in<br>Collaborating?</h2>
+        <p class="fu d2">I'm actively seeking a <strong>Data Analyst</strong> position and open to discussions about job opportunities, interviews, or project collaborations. Feel free to reach out!</p>
+        <div class="clinks fu d3">
+          <a href="mailto: [putriayulw10@gmail.com]" class="clink">
+            <div class="clink-ic cl-b">📧</div>
+            <div><div class="cl-lbl">Email</div><div class="cl-val">putriayulw10@gmail.com</div></div>
+          </a>
+          <a href="https://www.linkedin.com/in/putriayulichawardani" class="clink">
+            <div class="clink-ic cl-g">💼</div>
+            <div><div class="cl-lbl">LinkedIn</div><div class="cl-val">linkedin.com/in/putriayulichawardani</div></div>
+          </a>
+          <a href="https://github.com/putriayu101" class="clink">
+            <div class="clink-ic cl-p">🐙</div>
+            <div><div class="cl-lbl">GitHub</div><div class="cl-val">github.com/putriayu101</div></div>
+          </a>
+          <a href="https://public.tableau.com/app/profile/putri.wardani.lich/vizzes" class="clink">
+            <div class="clink-ic cl-p">💻</div>
+            <div><div class="cl-lbl">Tableau Public</div><div class="cl-val">public.tableau.com/profile/putri.wardani.lich</div></div>
+          </a>
+          <!-- <a href="https://wa.me/6285717365657" class="clink">
+            <div class="clink-ic cl-b">📱</div>
+            <div><div class="cl-lbl">WhatsApp / Phone</div><div class="cl-val">+62 857-1736-5657</div></div>
+          </a> -->
+        </div>
+      </div>
+      <div class="fu d2">
+        <div class="cv-card">
+          <div class="cvd-icon">📄</div>
+          <div class="cvd-title">Download CV / Resume</div>
+          <div class="cvd-sub">Download my complete CV in PDF format — includes education history, work experience, and project portfolio.</div>
+          <a href= "https://drive.google.com/file/d/1ZlwOUs2HJEvBePd8BQ9CtcUrglnRD7wZ/view?usp=sharing";
+          target="_blank"
+          class="cvd-btn">Download CV (PDF)</a>
+        </div>
+        <div class="info-summary">
+          <div class="is-title">📊 Quick Info</div>
+          <div class="is-row"><span class="is-lbl">Target Role</span><span style="font-weight:600;color:var(--bt)">Data Analyst</span></div>
+          <div class="is-row"><span class="is-lbl">Employment Type</span><span style="font-weight:600;color:var(--gt)">Full-time / Hybrid</span></div>
+          <div class="is-row"><span class="is-lbl">Location</span><span style="font-weight:600;color:var(--txt)">Indonesia & Remote</span></div>
+          <div class="is-row"><span class="is-lbl">Availability</span><span style="font-weight:600;color:var(--gd)">Immediately</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="fl-name">Putri Ayu Licha Wardani</div>
+    <div class="fl-role">Data Analyst · Sidoarjo, East Java, Indonesia</div>
+  </div>
+  <div class="fl-links">
+    <a href="#hero">Home</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="fl-copy">© 2026 · Putri Ayu Licha Wardani</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('in'); }), {threshold:0.1});
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+  setTimeout(() => document.querySelectorAll('#hero .fu').forEach(el => el.classList.add('in')), 80);
+  window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 20));
+  const bIO = new IntersectionObserver(e => {
+    e.forEach(x => {
+      if(x.isIntersecting){
+        x.target.querySelectorAll('.bar-fill').forEach(b => { const w=b.style.width; b.style.width='0'; setTimeout(()=>b.style.width=w,150); });
+        bIO.unobserve(x.target);
+      }
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('#skills').forEach(el => bIO.observe(el));
+</script>
+</body>
+</html>
